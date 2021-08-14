@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        /*
+        Складываем два числа, получаем 10
+        Число складываем со строкой, число (20) неявно приводися к строке -> конкатенация, 
+        переменной resul присваеваем получившееся значение, вывод в консоль
+        */
+        let result = 10 + 10 + "10";
+        console.log(result);
+
+        /*
+        Число складываем со строкой, неявное приведение, "1010"
+        Полученная строка снова складывается с числом, сновая неявное приведение к строке, 101010
+        */
+        result = 10 + "10" + 10;
+        console.log(result);
+
+        /*
+        У унарного плюса больший приоритет, чем у обычного, поэтому сначала "10" преобразуется в число, а затем все числа складываются.
+        */
+        result = 10 + 10 + +"10";
+        console.log(result);
+
+        /*
+        У унарного минуса больший приоритет, чем у деления, поэтому сначала -"" преобразуется в число (-0).
+        */
+        result = 10 / -"";
+        console.log(result);
+
+        /*
+        2,5 с т.з. javaScript — не число, 10/NaN = NaN.
+        */
+        result = 10 / +"2,5";
+        console.log(result);
+
+    </script>
+</body>
+
+</html>
