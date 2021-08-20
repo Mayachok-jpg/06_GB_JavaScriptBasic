@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        let a = +prompt('Введите первое число');
+        let b = +prompt('Введите второе число');
+        let result;
+
+        function my_sum(x, y) {
+            return (x + y)
+        };
+
+        function my_diff(x, y) {
+            return (x - y)
+        };
+
+        function my_mul(x, y) {
+            return (x * y)
+        };
+
+        function my_div(x, y) {
+            return (x / y)
+        };
+
+        function my_math(x, y, operation) {
+            switch (operation) {
+                case '+':
+                    return my_sum(x, y);
+                case '-':
+                    return my_diff(x, y);
+                case '*':
+                    return my_mul(x, y);
+                case '/':
+                    return my_div(x, y);
+                default:
+                    throw new Error("что-то пошло не так");
+            }
+
+
+        };
+
+        alert(my_math(a, b, '+') + ' ' + my_math(a, b, '-') + ' ' + my_math(a, b, '*') + ' ' + my_math(a, b, '/'));
+
+    </script>
+</body>
+
+</html>
