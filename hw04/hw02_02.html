@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta author="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            show() {
+                alert(this.author + ' сказал ' + this.text + ' ' + this.date);
+            }
+        }
+
+        class AttachedPost extends Post {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+
+            show() {
+                alert(this.author + ' сказал ' + this.text + ' ' + this.date + ' ' + this.highlighted);
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        let post1 = new Post('Толик', 'Привет', '01.01.01');
+        post1.show();
+        let post2 = new AttachedPost('Толик', 'Пока', '01.01.01');
+        post2.show();
+        post2.makeTextHighlighted();
+        post2.show();
+    </script>
+
+</body>
+
+</html>

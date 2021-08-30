@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function (text) {
+            this.text = text;
+        }
+
+        Post.prototype.show = function () {
+            alert(this.author + ' написал ' + this.text + ' ' + this.date);
+        }
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        AttachedPost.prototype.show = function () {
+            alert(this.author + ' написал ' + this.text + ' ' + this.date + ' ' + this.highlighted);
+        }
+
+        let post1 = new Post('Толик', 'Привет', '01.01.01');
+        post1.show();
+        let post2 = new AttachedPost('Валя', 'Hello', '01.01.02')
+        post2.show();
+        post2.makeTextHighlighted();
+        post2.show();
+    </script>
+</body>
+
+</html>
